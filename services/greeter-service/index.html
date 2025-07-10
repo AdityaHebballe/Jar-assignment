@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeter Service</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        button { font-size: 1.2em; padding: 10px 20px; }
+        #response { margin-top: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>Greeter Service</h1>
+    <button onclick="sayHello()">Say Hello</button>
+    <div id="response"></div>
+
+    <script>
+        function sayHello() {
+            fetch('/hello')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('response').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('response').innerText = 'Error calling hello service.';
+                });
+        }
+    </script>
+</body>
+</html>
