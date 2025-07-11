@@ -11,6 +11,5 @@ kubectl apply -f kubernetes/access-control.yaml
 kubectl apply -f kubernetes/app-secrets.yaml
 kubectl apply -f kubernetes/dummy-volume.yaml
 kubectl apply -f kubernetes/ingress.yaml
-kubectl apply -f kubernetes/grafana-ingress.yaml
 
 echo "Kubernetes manifests applied successfully!"

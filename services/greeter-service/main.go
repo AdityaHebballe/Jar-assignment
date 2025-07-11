@@ -23,11 +23,11 @@ func main() {
 		// Service discovery via Kubernetes DNS
 		echoSvcHost := os.Getenv("ECHO_SERVICE_HOST")
 		if echoSvcHost == "" {
-			echoSvcHost = "echo-service" // Default for local testing
+			echoSvcHost = "echo-service"
 		}
 		echoSvcPort := os.Getenv("ECHO_SERVICE_PORT")
 		if echoSvcPort == "" {
-			echoSvcPort = "8081" // Default for local testing
+			echoSvcPort = "8081"
 		}
 
 		payload := map[string]string{"message": "Hello from greeter-service"}
