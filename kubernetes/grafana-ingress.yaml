@@ -1,8 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: main-ingress
+  name: grafana-ingress
   annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
@@ -10,20 +11,10 @@ spec:
   - host: a876bf88740f74d04a4e28c4e92948db-2122727902.us-east-1.elb.amazonaws.com
     http:
       paths:
-      - path: /admin(/|$)(.*)
+      - path: /grafana(/|$)(.*)
         pathType: ImplementationSpecific
         backend:
           service:
-            name: admin-service
-            port:
-              number: 8082
-      - path: /()(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: greeter-service
+            name: prometheus-grafana
             port:
               number: 80
-
-
-
